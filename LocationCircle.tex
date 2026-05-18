@@ -309,13 +309,7 @@ serves inbound webhook events and outbound message dispatch.
 % ASCII architecture figure placeholder
 \begin{figure}[htbp]
 \centering
-% Replace with actual architecture diagram image:
-% \includegraphics[width=\columnwidth]{figures/architecture.png}
-\fbox{\parbox{0.9\columnwidth}{\centering\vspace{1.5cm}
-\textit{[Architecture diagram: Browser / PWA $\leftrightarrow$\\
-Express\,+\,Socket.io $\leftrightarrow$
-PostgreSQL\,/\,Redis\,/\,Google APIs\,/\,WhatsApp]}
-\vspace{1.5cm}}}
+\includegraphics[width=\columnwidth]{arc.png}
 \caption{LocationCircle system architecture overview.}
 \label{fig:arch}
 \end{figure}
@@ -331,7 +325,14 @@ PostgreSQL\,/\,Redis\,/\,Google APIs\,/\,WhatsApp]}
 The relational schema (Listing~\ref{lst:schema}) enforces referential
 integrity through cascaded foreign keys and a role-check constraint.
 Real-time coordinates are stored in both PostgreSQL (for audit and
-GDPR erasure) and Redis (for sub-second fan-out).
+GDPR erasure) and Redis (for sub-second fan-out). The structured entity-relationship model and modular database relation configuration are illustrated in Fig.~\ref{fig:datamodel}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{mod.png}
+\caption{LocationCircle relational database schema and modular entity-relationship model mapping.}
+\label{fig:datamodel}
+\end{figure}
 
 \begin{lstlisting}[language=SQL, caption={Core PostgreSQL schema (condensed).}, label={lst:schema}]
 CREATE TABLE users (
@@ -375,7 +376,7 @@ CREATE TABLE temp_head (
 
 \subsection{Real-Time Location Pipeline}
 
-The location update pipeline operates in four stages:
+The location update pipeline operates in four stages, illustrated systematically in Fig.~\ref{fig:flow}:
 \begin{enumerate}
   \item The browser's \texttt{Geolocation.watchPosition()} callback
         fires; the React \texttt{useLocation} hook debounces updates
@@ -388,6 +389,13 @@ The location update pipeline operates in four stages:
         Zustand \texttt{locationStore} re-renders the member list
         sorted by Haversine distance from the viewer.
 \end{enumerate}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{flow.png}
+\caption{Sequential real-time location update and notification broadcast pipeline flow.}
+\label{fig:flow}
+\end{figure}
 
 \subsection{Temporary Head Delegation}
 
