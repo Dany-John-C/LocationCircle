@@ -160,25 +160,25 @@ The app is built as a **Progressive Web App (PWA)** accessible on any modern bro
 ┌─────────────────────────────────────────────────────────────┐
 │                   API SERVER (Node.js)                      │
 │              Express + Socket.io + JWT Auth                 │
-│   ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌─────────────┐  │
-│   │  /auth   │ │ /groups  │ │/locations│ │  /webhook   │  │
-│   │ Firebase │ │  CRUD    │ │ GPS data │ │  WhatsApp   │  │
-│   └──────────┘ └──────────┘ └──────────┘ └─────────────┘  │
+│   ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌─────────────┐    │
+│   │  /auth   │ │ /groups  │ │/locations│ │  /webhook   │    │
+│   │ Firebase │ │  CRUD    │ │ GPS data │ │  WhatsApp   │    │
+│   └──────────┘ └──────────┘ └──────────┘ └─────────────┘    │
 │              node-cron (Temp Head expiry scheduler)         │
 └────────┬────────────────┬───────────────┬───────────────────┘
          │                │               │
          ▼                ▼               ▼
 ┌──────────────┐  ┌──────────────┐  ┌────────────────────────┐
 │  PostgreSQL  │  │    Redis     │  │   External Services    │
-│  (Supabase)  │  │  (Upstash)   │  │ ┌──────────────────┐  │
-│              │  │              │  │ │ Google Maps SDK  │  │
-│  users       │  │ location     │  │ │ Distance Matrix  │  │
-│  groups      │  │ cache        │  │ │ Geocoding API    │  │
-│  members     │  │ pub/sub      │  │ └──────────────────┘  │
-│  temp_head   │  │ sessions     │  │ ┌──────────────────┐  │
-│  locations   │  │              │  │ │  WhatsApp Biz    │  │
-│  notifs      │  └──────────────┘  │ │  API (Meta)      │  │
-└──────────────┘                    │ └──────────────────┘  │
+│  (Supabase)  │  │  (Upstash)   │  │ ┌──────────────────┐   │
+│              │  │              │  │ │ Google Maps SDK  │   │
+│  users       │  │ location     │  │ │ Distance Matrix  │   │
+│  groups      │  │ cache        │  │ │ Geocoding API    │   │
+│  members     │  │ pub/sub      │  │ └──────────────────┘   │
+│  temp_head   │  │ sessions     │  │ ┌──────────────────┐   │
+│  locations   │  │              │  │ │  WhatsApp Biz    │   │
+│  notifs      │  └──────────────┘  │ │  API (Meta)      │   │
+└──────────────┘                    │ └──────────────────┘   │
                                     └────────────────────────┘
 ```
 
