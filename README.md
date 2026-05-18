@@ -316,6 +316,7 @@ locationcircle/
 │
 ├── .env.example
 ├── docker-compose.yml
+├── requirements.txt
 └── README.md
 ```
 
