@@ -30,8 +30,6 @@ A **closed-group, real-time location sharing Progressive Web App** for families 
 - [Accessibility](#-accessibility)
 - [WhatsApp Bot Commands](#-whatsapp-bot-commands)
 - [User Roles & Permissions](#-user-roles--permissions)
-- [Sprint Roadmap](#-sprint-roadmap)
-- [Team](#-team)
 - [License](#-license)
 
 ---
@@ -518,51 +516,6 @@ Once you've linked your WhatsApp number in **Settings → WhatsApp**, you can me
 | Remove members | ❌ | ❌ | ✅ |
 | Assign Temporary Head | ❌ | ❌ | ✅ |
 | Transfer permanent Head role | ❌ | ❌ | ✅ |
-
----
-
-## 🗓️ Sprint Roadmap
-
-| Sprint | Dates | Status | Focus |
-|---|---|---|---|
-| **Sprint 1** | Jun 1–4 | 🔄 In Progress | Project Initiation + BRD Review |
-| **Sprint 2** | Jun 5–15 | ⏳ Planned | SRS + UML Diagrams + DB Design |
-| **Sprint 3** | Jun 16–22 | ⏳ Planned | Auth + Group Management |
-| **Sprint 4** | Jun 23–Jul 7 | ⏳ Planned | Real-Time Location + Socket.io |
-| **Sprint 5** | Jul 8–15 | ⏳ Planned | Dashboard + Google Maps + ETA |
-| **Sprint 6** | Jul 16–20 | ⏳ Planned | Accessibility (WCAG) + WhatsApp Bot |
-| **Sprint 7** | Jul 21–25 | ⏳ Planned | Testing + Bug Fixing |
-| **Sprint 8** | Jul 26–28 | ⏳ Planned | Deployment + Documentation |
-
----
-
-## 📦 Final Deliverables
-
-- [ ] SRS Document
-- [ ] UML Diagrams (Use Case, Class, Sequence, Activity, State, Component, Deployment)
-- [ ] DFD Level 0 & Level 1
-- [ ] ER Diagram
-- [ ] Architecture Diagram
-- [ ] ProjectLibre Plan (`.pod`)
-- [ ] Test Cases Document
-- [ ] Risk Analysis
-- [ ] Source Code (GitHub)
-- [ ] Deployed Application (Vercel + Render)
-- [ ] Final Project Report
-- [ ] Presentation (PPT)
-- [ ] Demo Video
-
----
-
-## 👨‍💻 Team
-
-| Role | Responsibility |
-|---|---|
-| Project Lead | Planning, integration, deployment |
-| Frontend Developer | React UI, accessibility, maps |
-| Backend Developer | APIs, authentication, WebSockets |
-| Database Engineer | PostgreSQL, schema, optimization |
-| QA Tester | Testing, accessibility audit |
 
 ---
 
