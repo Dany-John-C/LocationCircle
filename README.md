@@ -316,7 +316,6 @@ locationcircle/
 │
 ├── .env.example
 ├── docker-compose.yml
-├── requirements.txt
 └── README.md
 ```
 
@@ -517,8 +516,6 @@ Once you've linked your WhatsApp number in **Settings → WhatsApp**, you can me
 | Remove members | ❌ | ❌ | ✅ |
 | Assign Temporary Head | ❌ | ❌ | ✅ |
 | Transfer permanent Head role | ❌ | ❌ | ✅ |
-
----
 
 ## 📄 License
 
