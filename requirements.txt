@@ -1,0 +1,21 @@
+# Geolocation, Maps & GIS
+googlemaps==4.10.0
+geopy==2.4.1
+
+# Realtime, WebSockets & Communication
+python-socketio[client]==5.11.2
+websocket-client==1.8.0
+
+# Database & Caching
+psycopg2-binary==2.9.9
+redis==5.0.4
+
+# API Services & Routing
+Flask==3.0.3
+requests==2.31.0
+PyJWT==2.8.0
+
+# WhatsApp Integration & Environment Utilities
+twilio==9.0.4
+python-dotenv==1.0.1
+pydantic==2.7.1
