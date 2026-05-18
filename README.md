@@ -336,8 +336,8 @@ locationcircle/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-org/locationcircle.git
-cd locationcircle
+git clone https://github.com/Dany-John-C/LocationCircle.git
+cd LocationCircle
 ```
 
 ### 2. Install Dependencies
