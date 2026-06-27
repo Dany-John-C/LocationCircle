@@ -1,0 +1,87 @@
+============================================================
+ LocationCircle — Requirements & Dependencies
+============================================================
+NOTE: LocationCircle is a Node.js + TypeScript project.
+Runtime dependencies are managed with npm (see client/package.json
+and server/package.json) — NOT pip. This file documents the
+prerequisites and the dependency list for reference/submission.
+
+Install everything with:
+    cd client && npm install
+    cd ../server && npm install
+
+------------------------------------------------------------
+ SYSTEM PREREQUISITES
+------------------------------------------------------------
+Node.js            >= 20.x
+npm                >= 10.x
+Git                any recent version
+Docker + Compose   (optional) for local PostgreSQL + Redis
+PostgreSQL         >= 15   (local, or Neon cloud)
+Redis              >= 7    (local, or Upstash cloud)
+
+------------------------------------------------------------
+ CLOUD ACCOUNTS / EXTERNAL SERVICES
+------------------------------------------------------------
+Firebase                 Google sign-in + Cloud Storage (required)
+Neon                     managed PostgreSQL            (deploy)
+Upstash                  managed Redis                 (deploy)
+Render                   API + WebSocket hosting       (deploy)
+Vercel                   static PWA hosting            (deploy)
+Google Maps Platform     Distance Matrix + Geocoding   (optional)
+Meta WhatsApp Cloud API  WhatsApp bot                  (optional)
+
+============================================================
+ FRONTEND  (client/package.json)  — install via npm
+============================================================
+# dependencies
+react                       ^18.3.1
+react-dom                   ^18.3.1
+react-router-dom            ^6.24.0
+zustand                     ^4.5.4
+axios                       ^1.7.2
+socket.io-client            ^4.7.5
+firebase                    ^10.12.3
+leaflet                     ^1.9.4
+lucide-react                ^1.16.0
+
+# devDependencies
+typescript                  ^5.5.3
+vite                        ^5.3.1
+@vitejs/plugin-react        ^4.3.1
+vite-plugin-pwa             ^0.20.0
+workbox-window              ^7.1.0
+tailwindcss                 ^3.4.4
+postcss                     ^8.4.39
+autoprefixer                ^10.4.19
+@types/react                ^18.3.3
+@types/react-dom            ^18.3.0
+@types/leaflet              ^1.9.12
+
+============================================================
+ BACKEND  (server/package.json)  — install via npm
+============================================================
+# dependencies
+express                     ^4.19.2
+socket.io                   ^4.7.5
+pg                          ^8.12.0
+ioredis                     ^5.4.1
+firebase-admin              ^12.3.0
+jsonwebtoken                ^9.0.2
+zod                         ^4.4.3
+cors                        ^2.8.5
+helmet                      ^7.1.0
+express-rate-limit          ^7.4.0
+node-cron                   ^3.0.3
+axios                       ^1.7.2
+dotenv                      ^16.4.5
+
+# devDependencies
+typescript                  ^5.5.3
+tsx                         ^4.16.2
+@types/node                 ^20.14.11
+@types/express              ^4.17.21
+@types/pg                   ^8.11.6
+@types/cors                 ^2.8.17
+@types/jsonwebtoken         ^9.0.6
+@types/node-cron            ^3.0.11

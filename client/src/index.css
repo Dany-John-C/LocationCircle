@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Variables ─────────────────────────────────────── */
+:root {
+  --navy: #202c33;       /* panels */
+  --navy-dark: #0b141a;  /* app background */
+  --teal: #00a884;       /* WhatsApp green */
+  --accent: #F0A500;     /* gold — Group Head */
+  --text-primary: #e9edef;
+  --text-muted: #8696a0;
+  --radius: 12px;
+}
+
+/* ── Base Reset ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  background: #0b141a;
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Accessibility ──────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 16px;
+  background: var(--accent);
+  color: #0A1628;
+  padding: 8px 16px;
+  border-radius: 0 0 8px 8px;
+  font-weight: 600;
+  font-size: 14px;
+  z-index: 9999;
+  transition: top 0.2s;
+  text-decoration: none;
+}
+.skip-link:focus { top: 0; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Glassmorphism Utility ──────────────────────────────── */
+@layer components {
+  /* Flat messaging-app panels (no glassmorphism) */
+  .glass {
+    background: #202c33;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-strong {
+    background: #1f2c34;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .btn-primary {
+    @apply bg-teal text-navy-dark font-semibold px-6 py-3 rounded-xl
+           hover:bg-teal-light active:scale-95 transition-all duration-200
+           focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2
+           focus-visible:ring-offset-navy-dark disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-navy-dark font-semibold px-6 py-3 rounded-xl
+           hover:bg-accent-light active:scale-95 transition-all duration-200
+           focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2;
+  }
+
+  .btn-ghost {
+    @apply text-gray-400 hover:text-white hover:bg-navy-light px-4 py-2 rounded-lg
+           transition-all duration-200 font-medium;
+  }
+
+  .input-field {
+    @apply w-full bg-navy-light border border-white/10 text-white placeholder-gray-500
+           rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teal focus:ring-1
+           focus:ring-teal transition-colors duration-200;
+  }
+
+  .card {
+    @apply glass rounded-2xl p-4 shadow-card;
+  }
+
+  .nav-item {
+    @apply flex flex-col items-center gap-1 px-4 py-2 rounded-xl
+           text-gray-400 hover:text-white transition-colors duration-200
+           focus-visible:ring-2 focus-visible:ring-accent;
+  }
+
+  .nav-item.active { @apply text-teal-light; }
+}
+
+/* ── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+
+/* ── Page Transitions ───────────────────────────────────── */
+.page-enter { animation: fadeSlideIn 0.35s ease-out; }
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Live location pulse dot ────────────────────────────── */
+.pulse-ring {
+  position: absolute;
+  border-radius: 50%;
+  animation: pulseRing 2s ease-out infinite;
+}
+
+@keyframes pulseRing {
+  0%   { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* ── Leaflet (map) theming ──────────────────────────────── */
+/* Empty/loading areas match the app's dark background */
+.leaflet-container { background: #0b141a; }
+
+/* Our avatar markers use bare HTML — strip Leaflet's default white box */
+.lc-pin, .leaflet-div-icon { background: transparent; border: none; }
+
+/* Pulsing ring behind the viewer's own ("You") map marker (FR-MAP-03) */
+.lc-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid #06cf9c;
+  animation: lcPulse 1.8s ease-out infinite;
+}
+@keyframes lcPulse {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  100% { transform: scale(2.3); opacity: 0;   }
+}
+
+/* Keep zoom controls + attribution visible above the bottom nav bar */
+.leaflet-bottom { margin-bottom: 56px; }
+
+/* Dark, legible attribution + zoom controls on the dark basemap */
+.leaflet-control-attribution {
+  background: rgba(11, 20, 26, 0.7) !important;
+  color: #8696a0 !important;
+}
+.leaflet-control-attribution a { color: #06cf9c !important; }
+.leaflet-control-zoom a {
+  background: rgba(32, 44, 51, 0.95) !important;
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
